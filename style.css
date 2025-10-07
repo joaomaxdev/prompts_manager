@@ -1,21 +1,18 @@
 :root {
-  /* Cores - Cores primárias e neutras */
-  --cores-white: #ffffff;
+  --white: #ffffff;
 
-  /* Cores - Cores de destaque (Accent) */
-  --cores-accent-600: #4863f7;
-  --cores-accent-500: #7878d7;
+  --accent-600: #4863f7;
+  --accent-500: #7878d7;
 
-  /* Cores - Cores de alerta (Alert) */
-  --cores-alert-600: #ff5c5c;
+  --alert-600: #ff5c5c;
 
-  /* Cores - Cores de cinza (Gray) */
-  --cores-gray-900: #0d0d0d;
-  --cores-gray-800: #111111;
-  --cores-gray-700: #1a1a1a;
-  --cores-gray-200: #424242;
-  --cores-gray-100: #737373;
+  --gray-900: #0d0d0d;
+  --gray-800: #111111;
+  --gray-700: #1a1a1a;
+  --gray-200: #424242;
+  --gray-100: #737373;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -25,19 +22,24 @@
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background-color: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: var(--cores-gray-100);
+  background-color: var(--gray-100);
 }
 
 body,
 input,
 button {
   font-family: "Inter", sans-serif;
-  background-color: var(--cores-gray-900);
-  color: var(--cores-white);
+}
+
+body {
+  background-color: var(--gray-900);
+  color: var(--white);
 }
 
 .app {
@@ -52,6 +54,7 @@ button {
   flex: 1;
   padding: 62px 124px;
   gap: 32px;
+
   overflow-y: scroll;
 }
 
@@ -62,6 +65,7 @@ button {
   gap: 16px;
   width: 100%;
 }
+
 .btn {
   gap: 10px;
   height: 44px;
@@ -75,14 +79,15 @@ button {
 
 .btn-outline {
   background: transparent;
-  border: 0.5px solid var(--cores-gray-200);
-  color: var(--cores-white);
-  padding: 0 18px;
+  border: 0.5px solid var(--gray-200);
+  color: var(--white);
+  padding: 0 16px;
+
   transition: background-color 0.5s;
 }
 
 .btn-outline:hover {
-  background: var(--cores-gray-200);
+  background-color: var(--gray-200);
 }
 
 .icon {
@@ -91,37 +96,31 @@ button {
 }
 
 .btn-primary {
-  background: var(--cores-accent-600);
-  border: 1px solid var(--cores-accent-500);
-  color: var(--cores-white);
+  background: var(--accent-600);
+  border: 1px solid var(--accent-500);
+  color: var(--white);
   padding: 0 24px;
   transition: opacity 0.5s;
 }
+
 .btn-primary:hover {
   opacity: 0.8;
 }
 
-.icon img {
-  width: 20px;
-  height: 20px;
-}
-
-.text {
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--cores-white);
+.w-150 {
+  width: 150px;
+  justify-content: center;
 }
 
 .prompt-title {
-  font-size: 32px;
   font-weight: 600;
+  font-size: 32px;
   outline: none;
 }
 
 .prompt-content {
   font-size: 16px;
-  color: var(--cores-white);
+  color: var(--white);
   outline: none;
   line-height: 32px;
 }
@@ -129,10 +128,11 @@ button {
 .editable-wrapper {
   position: relative;
 }
+
 .editable-wrapper::before {
   content: attr(data-placeholder);
   position: absolute;
-  color: var(--cores-gray-200);
+  color: var(--gray-200);
   pointer-events: none;
   opacity: 0;
 }
@@ -144,10 +144,89 @@ button {
 #title-wrapper.is-empty {
   font-size: 32px;
   font-weight: 600;
-  color: var(--cores-gray-200);
+  color: var(--gray-200);
 }
 
 #content-wrapper.is-empty {
   font-size: 16px;
-  color: var(--cores-gray-200);
+  color: var(--gray-200);
+  line-height: 32px;
+}
+
+.icon-button {
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.open-toggle {
+  position: absolute;
+  top: 62px;
+  left: 62px;
+  display: none;
+}
+
+.sidebar {
+  width: 400px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 32px;
+  background-color: var(--gray-800);
+  border-right: 0.5px solid var(--gray-700);
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--gray-700);
+  gap: 20px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  top: 22px;
+  transform: translateY(-50%);
+}
+
+.search-input {
+  background: transparent;
+  height: 44px;
+  width: 100%;
+  border: 1px solid var(--gray-200);
+  outline: none;
+  color: var(--white);
+  font-size: 16px;
+  border-radius: 6px;
+  padding-left: 48px;
+}
+
+.search-input::placeholder {
+  color: var(--gray-200);
+}
+
+.btn-full {
+  width: 100%;
+  justify-content: center;
+}
+
+.logo {
+  height: 24px;
 }
